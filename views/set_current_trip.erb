@@ -1,0 +1,31 @@
+
+
+<div class="orange-background">
+
+    <header>
+        <h1 class="logo-top">Trippy</h1>
+    </header>
+    <main class="set-trip-content">
+        <h2>Set your current trip:</h2>
+        <% if @user_trips == [] %>
+            <p>No trips yet!</p>
+            <br>
+            <a class="link-style-1" href="/create_trip">Create a trip</a>
+        <% else %>
+            <form action="/set_current_trip" method="post">
+                <input type="hidden" name="_method" value="patch">
+                
+                <select name="id">
+                    <% @user_trips.each do |trip| %>
+                        <option name="id" value="<%= trip["id"]%>"><%= trip["trip_name"] %></option>
+                        
+                    <% end %>
+                </select>
+                <button class="link-style-3-button">Set Trip</button>
+            </form>
+            
+        <% end %>
+        <a class="link-style-3" href="/home">Go back</a>
+    </main>
+
+<div>

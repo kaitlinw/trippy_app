@@ -1,57 +1,70 @@
 <div class="home-background">
     <header>
         <div id="mySidenav" class="sidenav">
-            <h2>Hi Kaitlin!</h2>
+            <h2>Hi <%= @user["first_name"]%>!</h2>
+            <h3>Current Trip:</h3>
+            <% if @current_trip == nil %>
+                <p>Set a trip below</p> 
+            <% else %>
+                <h3><%=@current_trip["trip_name"]%></h3>
+            <% end %>
+            
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/schedule_view">Schedule view</a>
-            <a href="/day_view">Daily view</a>
+            <a href="/trip_details">Daily view</a>
             <a href="/calendar_view">Calendar view</a>
             <a href="/edit_trip">Edit Trip</a>
-            <a href="/log_out">Logout</a>
+            <a href="/set_current_trip">Set Current Trip</a>
+            <a href="/create_trip">Add Trip</a>
+            <form action="/logout" method="post"> 
+                <input type="hidden" name="_method" value="delete">
+                <button>Logout</button>
+            </form> 
         </div>
 
         <div class="flex-header">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <h1 class="logo-top">Trippy</h1>
+                <h1 class="logo-top">Trippy</h1>
         </div>
     </header>
     
     <div class="home-main-flex">
-        <div class="upcoming-trip-flex">
-            <h2>Upcoming trip!</h2>
-            <a href="/current_trip_details">
-            <div class="current-trip">
-                <h3>European Adventure!!! :D :D :D </h3>
-                <h4>Starts in 22 days!</h4>
-            </div></a>
-            <a class="trip-link" href="/trip_details">View Trip Details</a>
-        </div>
+        <% if @current_trip == nil %>
+            <div class="set_trip">
+                <h2>No current trip set!</h2>
+                <p>Go to the main menu to set a <br> current trip or create a new one.</p>
+            </div>
 
-
+        <% else %>
+            <div class="upcoming-trip-flex">
+                <h2>Upcoming trip!</h2>
+                <a href="/trip_details?<%=  @current_trip["trip_name"]%>">
+                <div class="current-trip">
+                    <h3><%= @current_trip["trip_name"] %></h3>
+                    <h4>Starts in 22 days!</h4>
+                </div></a>
+                <a class="trip-link" href="/trip_details?<%= @current_trip["trip_name"]%>">View Trip Details</a>
+            </div>  
+        <% end %>
         <h2 id="past-trip-header">Past Trips</h2>
-        <div class="past-trip-flex">
-        <a href="/past_trip_details">
-            <div class="past-trip">
-                <h3>European Adventure!!! :D :D :D </h3>
-                <h4>Starts in 22 days!</h4>
-            </div></a>
-            <a class="trip-link" href="/trip_details">View Trip Details</a>
-        </div>
 
+        <% if @user_trips == nil %>
+        <br>
+            <p>Time to book a holiday 😏</p>
+        <% else %>
+            <% @user_trips.each do |trip| %>
 
-
-
-
-
+                
+                <div class="past-trip-flex">
+                    <a href="/past_trip_details">
+                    <div class="past-trip">
+                        <h3> <%= trip["trip_name"] %></h3>
+                        <h4><%= trip["start_date"]%> to <%= trip["end_date"]%></h4>
+                    </div></a>
+                    <a class="trip-link" href="/trip_details">View Trip Details</a>
+                </div>
+            <% end %>
+        <% end %>
+    
     </div>
 </div>
 
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "70vw";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>

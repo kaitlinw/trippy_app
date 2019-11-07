@@ -23,7 +23,7 @@ img {
 
 input, 
 textarea, 
-select, 
+/* select,  */
 a { 
     outline: none; 
 }
@@ -66,14 +66,18 @@ a {
         height: 100vh;
     }
 
-   .lets-go-background {
-    background-color: orange;
-    min-height: 100vh;
+    .login-form-background {
+        background-color: #FF3366;
+        height: 100vh;
     }
+
+    .orange-background {
+        background-color: orange;
+        min-height: 100vh;
+        }
 
     .create-trip-form-background {
         background-color: #8860D0;
-        /* background-color: #DDE3FF; */
         color: black;
         min-height: 100vh;
 
@@ -83,7 +87,6 @@ a {
         /* background-color: #FF3366; */
         background: rgb(255,51,102);
         background: linear-gradient(180deg, rgba(255,51,102,1) 70%, rgba(252,176,69,1) 100%);
-
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -91,6 +94,11 @@ a {
 
     }
 
+    .trip-details-background {
+        background-color: #68DAC2;
+        color: white;
+
+    }
 
     /* UNIVERSAL STYLES  */
 
@@ -171,6 +179,29 @@ a {
         display: inline-block;
     }  
 
+    .link-style-3,
+    .link-style-3-button {
+        text-decoration: none;
+        color: white;
+        border: 3px solid white;
+        width: 140px;
+        height: 50px;
+        border-radius: 0.2em;
+        margin: 5%;
+        /* padding: auto; */
+        padding: 13px 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        /* display: inline; */
+    }  
+
+    .link-style-3-button {
+        margin-top: 15%;
+        background-color: transparent;
+    }
+
+
     .small-font {
         padding-top: 8.5px;
          font-size: 18px;
@@ -178,7 +209,7 @@ a {
     }
 
     .form-style-1 form {
-        max-height: 70vh;
+        min-height: 100vh;
     }
    .form-style-1 input {
        margin-top: 8%;
@@ -202,6 +233,12 @@ a {
 
    .form-style-1 a {
        margin-top: 12%;
+   }
+
+
+
+   .form-style-2 {
+    border: 1px solid black;
    }
 
    .column-flex {
@@ -256,6 +293,36 @@ a {
     .form-labels {
         text-align: left;
     }
+    /* SET TRIP */
+
+    .set-trip-content > * {
+        /* max-width: 90vw; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+
+   .set-trip-content select  {
+        font-size: 20px;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        color: white;
+        padding: 3%;
+        background-color: transparent;
+        min-width: 60vw;
+    }
+    .set-trip-content form {
+        margin-top: 15%;
+    }
+
+    .link-style-3-button {
+        padding: 0;
+    }
+
+
 
     /* HOME */
     .upcoming-trip-flex {
@@ -324,7 +391,6 @@ a {
 
     }
 
-
     .past-trip-flex {
         display: flex;
         align-items: center;
@@ -340,7 +406,6 @@ a {
         box-shadow: 2px 14px 9px 3px rgba(0,0,0,0.27);
 
     }
-    
     
     .past-trip-flex h2 {
         margin-top: 5%;
@@ -393,6 +458,24 @@ a {
         font-weight: lighter;
     }
 
+    .set_trip {
+        min-height: 10vh;
+        min-width: 83vw;
+        background-color: rgb(247, 136, 164);
+        border-radius: 0.12em;
+        margin-top: 5%;
+        padding: 8% 0;
+        -webkit-box-shadow: 2px 14px 9px 3px rgba(0,0,0,0.27);
+        -moz-box-shadow: 2px 14px 9px 3px rgba(0,0,0,0.27);
+        box-shadow: 2px 14px 9px 3px rgba(0,0,0,0.27);
+    }
+
+    .inline-links {
+        margin-top:100px;
+        display: flex;
+    }
+
+
     /* HEADER BAR */
     .flex-header {
         display: flex;
@@ -409,7 +492,7 @@ a {
     
     /* SIDE MENU */
     .sidenav {
-        height: 100%;
+        min-height: 100%;
         width: 0;
         position: fixed;
         z-index: 1;
@@ -421,20 +504,17 @@ a {
         padding-top: 60px;
       }
       
-      .sidenav a {
+      .sidenav a, button {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 23px;
         color: white;
         display: block;
         transition: 0.3s;
         line-height: 50px;
       }
       
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-      
+     
       .sidenav .closebtn {
         position: absolute;
         top: 0;
@@ -448,7 +528,7 @@ a {
         .sidenav a {font-size: 18px;}
       }
 
-      .sidenav > h2 {
+      .sidenav > h2, h3 {
           margin: 6% 0;
       }
 
@@ -456,6 +536,20 @@ a {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* clicks */
