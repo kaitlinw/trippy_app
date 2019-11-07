@@ -28,7 +28,7 @@ end
 
 
 def run_sql(sql)
-  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: "trippy_database"})
+  conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'trippy_database'})
   records = conn.exec(sql)
   conn.close
   return records
