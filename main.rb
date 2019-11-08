@@ -76,10 +76,15 @@ delete '/logout' do
 end
 
 get '/home' do
+  if session[:user_id] == nil
+    redirect '/'
+  end
   @user = find_one_user(session[:user_id])
-  @current_trip = find_current_trip_data(session[:user_id])
+  @current_trip = find_current_trip_data(@user['current_trip_id'])
+  puts("HERERERERE")
+  p(session[:user_id])
   @user_trips = find_all_trips_from_user(session[:user_id])
-
+  
   erb :home
 end
 
@@ -88,13 +93,11 @@ end
 
 get '/set_current_trip' do
   @user_trips = find_all_trips_from_user(session[:user_id])
-  puts("user_TRIPS")
-    p(@user_trips.values)
   erb :set_current_trip
 end
 
 patch '/set_current_trip' do
-  set_current_trip(params[:id])
+  set_current_trip(params[:trip_id], session[:user_id])
 
   redirect '/home'
 end
@@ -119,14 +122,17 @@ end
 
 get '/edit_trip' do
   @user = find_one_user(session[:user_id])
-  @current_trip = find_current_trip_data(session[:user_id])
+  @current_trip = find_current_trip_data(@user["current_trip_id"])
 
   erb :edit_trip
 end
 
 
 patch '/edit_trip' do
-  
+  @user = find_one_user(session[:user_id])
+  if params[:id] = @user["current_trip_id"]
+    update_trip(params)
+  end
   # include remove or add travel buddy here (overall trip info)
   redirect '/home'
 end
@@ -136,9 +142,9 @@ end
 #   erb :delete
 # end
 
-# delete '/delete' do
-#   redirect '/home'
-# end
+delete '/delete' do
+  redirect '/home'
+end
 
 
 

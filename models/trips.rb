@@ -27,24 +27,28 @@ def find_all_trips_from_user (lead_user_id)
 end
 
 
-def set_current_trip (current_trip_id)
-    return nil unless current_trip_id
-    return run_sql("update users set current_trip_id = '#{params[:id]}';")
+def set_current_trip (trip_id, user_id)
+    return nil unless trip_id
+    return run_sql("update users set current_trip_id = #{trip_id} where id = #{user_id};")
 
 end
 
 
-def find_current_trip_data (user_id)
-    @user = find_one_user(session[:user_id])
-    if @user["current_trip_id"] == nil
+def find_current_trip_data (trip_id)
+    if trip_id == nil
         return @current_trip = []
-      else
-        current_trip_id = @user["current_trip_id"]
-        return @current_trip = find_trip_by_id(current_trip_id)
+    else
+        return @current_trip = find_trip_by_id(trip_id)
     end
 end
 
 def update_trip (params)
-    return run_sql("update trip_data set name = '#{params[:name]}', image_url ='#{params[:image_url]}' where id = #{params[:id]} where;")
+    return run_sql("update trip_data set 
+    trip_name = '#{params[:trip_name]}',
+    start_date ='#{params[:start_date]}',
+    end_date ='#{params[:end_date]}',
+    trip_description ='#{params[:trip_description]}',
+    cover_image ='#{params[:cover_image]}'
+      where id = #{params[:id]};")
 
 end

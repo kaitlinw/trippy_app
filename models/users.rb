@@ -5,9 +5,9 @@ def find_user_by_email (email)
     return run_sql("select * from users where email = '#{email}';").first
 end
 
-def find_one_user (id)
-    return nil unless id
-    return run_sql("select * from users where id = '#{id}';").first
+def find_one_user (session_id)
+    return nil unless session_id
+    return run_sql("select * from users where id = '#{session_id}';").first
 end
 
 def create_user (params)

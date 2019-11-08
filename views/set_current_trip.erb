@@ -15,9 +15,9 @@
             <form action="/set_current_trip" method="post">
                 <input type="hidden" name="_method" value="patch">
                 
-                <select name="id">
+                <select name="trip_id">
                     <% @user_trips.each do |trip| %>
-                        <option name="id" value="<%= trip["id"]%>"><%= trip["trip_name"] %></option>
+                        <option value="<%= trip["id"]%>"><%= trip["trip_name"] %></option>
                         
                     <% end %>
                 </select>

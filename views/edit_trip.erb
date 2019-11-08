@@ -6,11 +6,11 @@
 
         <main class="create-trip-content">
             <h2>Edit your trip!</h2>
-            <form class="form-style-1" action="/edit-trip" method="post">
+            <form class="form-style-1" action="/edit_trip?id=<%= @current_trip["id"]%>" method="post">
+                <input type="hidden" name="_method" value="patch">
                 <input type="text" name="trip_name" value="<%= @current_trip["trip_name"] %>">
                 <h4>Name your trip!</h4>
                 <input type="date" name="start_date" value="<%= @current_trip["start_date"]%>"><br>
-
                 <input id="checkbox" type="checkbox" name="end_date">
                 <label class="form-labels">No plans yet!</label>
                 <h4>When do you leave?</h4>
@@ -24,9 +24,14 @@
                 <h4>Any travel buddies?</h4>
                 <input type="text" name="trip_description" value="<%= @current_trip["trip_description"]%>">
                 <h4>Add a trip description!</h4>
+                <input type="text" name="cover_image" value="<%= @current_trip["cover_image"]%>">
+                <h4>Change the cover photo (using the image address)</h4>
                 <button class="link-style-1-button small-font">Update trip</button>
             </form>
-
+            <form action="/destroy_trip?id=<%= @current_trip["id"]%>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button class="link-style-3-button">Delete Trip</button>
+            </form>
         </main>
     </div>
 <div>

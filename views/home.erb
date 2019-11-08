@@ -38,9 +38,9 @@
             <div class="upcoming-trip-flex">
                 <h2>Upcoming trip!</h2>
                 <a href="/trip_details?<%=  @current_trip["trip_name"]%>">
-                <div class="current-trip">
-                    <h3><%= @current_trip["trip_name"] %></h3>
-                    <h4>Starts in 22 days!</h4>
+                <div class="current-trip" style="background-image: url('<%= @current_trip["cover_image"]%>')">
+                    <h4><%= @current_trip["trip_name"] %></h4>
+                    <h3>Starts in 22 days!</h3>
                 </div></a>
                 <a class="trip-link" href="/trip_details?<%= @current_trip["trip_name"]%>">View Trip Details</a>
             </div>  
@@ -56,9 +56,9 @@
                 
                 <div class="past-trip-flex">
                     <a href="/past_trip_details">
-                    <div class="past-trip">
-                        <h3> <%= trip["trip_name"] %></h3>
-                        <h4><%= trip["start_date"]%> to <%= trip["end_date"]%></h4>
+                    <div class="past-trip" style="background-image: url('<%= trip["cover_image"]%>')">
+                        <h4> <%= trip["trip_name"] %></h4>
+                        <h3><%= trip["start_date"]%> to <%= trip["end_date"]%></h3>
                     </div></a>
                     <a class="trip-link" href="/trip_details">View Trip Details</a>
                 </div>
