@@ -9,6 +9,7 @@ Check out the app here (and switch to mobile view: Cmd+Option+I):[TRIPPY!](https
 
 
 ### Planning
+<span>
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/Screen%20Shot%202019-11-08%20at%201.58.54%20pm.png" alt="drawing" width="200"/>
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/Screen%20Shot%202019-11-08%20at%201.59.04%20pm.png" alt="drawing" width="200"/>
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/Screen%20Shot%202019-11-08%20at%201.59.20%20pm.png" alt="drawing" width="200"/>
@@ -19,7 +20,7 @@ Check out the app here (and switch to mobile view: Cmd+Option+I):[TRIPPY!](https
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/Screen%20Shot%202019-11-08%20at%202.01.03%20pm.png" alt="drawing" width="200"/>
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/Screen%20Shot%202019-11-08%20at%202.01.09%20pm.png" alt="drawing" width="200"/>
 <img src="https://github.com/kaitwal/trippy_app/blob/master/readme-images/colours.png" alt="drawing" width="200"/>
-
+</span>
 ### Approach to solving
 Given the final app will hold a lot of data, it seemed essential to have user logins, especially considering the app doesnt offer any public functionality just yet. 
 
