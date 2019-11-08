@@ -1,5 +1,8 @@
 # trippy_app
 
+![](colours.png)
+
+
 ### Planning
 
 
